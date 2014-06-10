@@ -2,5 +2,5 @@ package net.wot;
 
 
 public interface UnitOfWork {
-	void work();
+	void work() throws Exception;
 }
