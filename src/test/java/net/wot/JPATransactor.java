@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
 
-public class JPATransactor {
+public class JPATransactor implements Transactor {
 	private EntityManager entityManager;
 
 	public JPATransactor(EntityManager entityManager) {
