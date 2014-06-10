@@ -24,11 +24,11 @@ public class Company implements Serializable {
 	
 	@OneToMany(cascade=CascadeType.PERSIST, targetEntity=Employee.class)
 	@JoinColumn(name="COMPANY_ID")
-	private Employees employees;
+	private List<Employee> employees;
 	
 	private Company() {
 		super();
-		this.employees = new Employees();
+		this.employees = new ArrayList<>();
 	}
 	
 	public Company(String name)
