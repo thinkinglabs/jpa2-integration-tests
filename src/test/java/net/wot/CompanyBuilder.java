@@ -1,6 +1,6 @@
 package net.wot;
 
-public class CompanyBuilder {
+public class CompanyBuilder implements Builder<Company> {
 	private String name = "a company";
 	
 	public static CompanyBuilder aCompany() {
