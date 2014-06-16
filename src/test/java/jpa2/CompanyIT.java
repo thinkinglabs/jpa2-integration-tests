@@ -25,7 +25,7 @@ public class CompanyIT {
 
 	@Test
 	public void create() {
-		Company company = new Company("a company");
+		Company company = new Company("a company", false);
 		tx.begin();
 		em.persist(company);
 		tx.commit();
@@ -35,7 +35,7 @@ public class CompanyIT {
 	
 	@Test
 	public void addEmployee() {
-		Company company = new Company("a company");
+		Company company = new Company("a company", false);
 		Employee employee = new Employee("toto");
 		company.addEmployee(employee);
 		tx.begin();
