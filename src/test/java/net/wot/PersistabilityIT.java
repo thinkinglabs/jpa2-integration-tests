@@ -11,6 +11,7 @@ import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 
 import net.wot.company.CompanyBuilder;
+import net.wot.employee.EmployeeBuilder;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.hamcrest.beans.SamePropertyValuesAs;
@@ -23,7 +24,22 @@ public class PersistabilityIT {
 	
 	final List<? extends Builder<?>> persistentObjectBuilders = 
 			Arrays.asList(
-					CompanyBuilder.aCompany());
+				CompanyBuilder.aCompany()
+					.havingEmployees(persisted(EmployeeBuilder.anEmployee().withName("Joe Six Pack"))));
+	
+	
+	private <T> Builder<T> persisted(final Builder<T> builder) {
+		return new Builder<T>() {
+
+			@Override
+			public T build() {
+				T entity = builder.build();
+				entityManager.persist(entity);
+				return entity;
+			}
+			
+		};
+	}
 	
 	@Test
 	public void roundTripPersistentObjects() throws Exception {
