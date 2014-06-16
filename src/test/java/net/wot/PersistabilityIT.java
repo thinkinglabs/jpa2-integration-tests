@@ -72,6 +72,7 @@ public class PersistabilityIT {
 			
 			@Override
 			public void work() throws Exception {
+				//TODO look at ShazamCrest for deep bean property matching
 				assertThat(entityManager.find(original.getClass(), idOf(original)), SamePropertyValuesAs.samePropertyValuesAs(original));
 			}
 		});
