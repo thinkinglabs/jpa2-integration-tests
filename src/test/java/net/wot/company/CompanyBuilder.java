@@ -1,4 +1,7 @@
-package net.wot;
+package net.wot.company;
+
+import net.wot.Builder;
+import net.wot.company.Company;
 
 public class CompanyBuilder implements Builder<Company> {
 	private String name = "a company";

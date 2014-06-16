@@ -1,17 +1,24 @@
-package net.wot;
+package net.wot.company;
 
 import static org.junit.Assert.*;
-import static net.wot.CompanyNamedMatcher.companyNamed;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
+
+import net.wot.JPATransactor;
+import net.wot.Transactor;
+import net.wot.UnitOfWork;
+import net.wot.company.AllCompanies;
+import net.wot.company.Company;
+import net.wot.company.PersistentAllCompanies;
 
 import org.hamcrest.Matcher;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.containsInAnyOrder;
-import static net.wot.CompanyBuilder.aCompany;
+import static net.wot.company.CompanyBuilder.aCompany;
+import static net.wot.company.CompanyNamedMatcher.companyNamed;
 
 public class PersistentAllCompaniesIT {
 

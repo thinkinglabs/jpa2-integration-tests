@@ -1,4 +1,4 @@
-package net.wot;
+package net.wot.company;
 
 import java.util.List;
 

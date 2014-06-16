@@ -10,15 +10,20 @@ import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 
+import net.wot.company.CompanyBuilder;
+
 import org.apache.commons.beanutils.PropertyUtils;
 import org.hamcrest.beans.SamePropertyValuesAs;
 import org.junit.Test;
 
 public class PersistabilityIT {
 
-	final List<? extends Builder<?>> persistentObjectBuilders = Arrays.asList(CompanyBuilder.aCompany());
 	final EntityManager entityManager = Persistence.createEntityManagerFactory("integration").createEntityManager();
 	final Transactor transactor = new JPATransactor(entityManager);
+	
+	final List<? extends Builder<?>> persistentObjectBuilders = 
+			Arrays.asList(
+					CompanyBuilder.aCompany());
 	
 	@Test
 	public void roundTripPersistentObjects() throws Exception {

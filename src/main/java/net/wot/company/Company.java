@@ -1,10 +1,12 @@
-package net.wot;
+package net.wot.company;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
+
+import net.wot.employee.Employee;
 
 /**
  * Entity implementation class for Entity: Company
