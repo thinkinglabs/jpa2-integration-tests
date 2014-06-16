@@ -50,6 +50,10 @@ public class Company implements Serializable {
 		return name;
 	}
 	
+	public boolean isBankrupted() {
+		return bankrupted;
+	}
+
 	public void addEmployee(Employee employee) {
 		this.employees.add(employee);
 	}
