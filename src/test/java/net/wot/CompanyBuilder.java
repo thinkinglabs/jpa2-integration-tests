@@ -2,6 +2,7 @@ package net.wot;
 
 public class CompanyBuilder implements Builder<Company> {
 	private String name = "a company";
+	private boolean bankrupted = false;
 	
 	public static CompanyBuilder aCompany() {
 		return new CompanyBuilder();
@@ -12,7 +13,12 @@ public class CompanyBuilder implements Builder<Company> {
 		return this;
 	}
 	
+	public CompanyBuilder withBankrupted(boolean bankrupted) {
+		this.bankrupted = bankrupted;
+		return this;
+	}
+	
 	public Company build() {
-		return new Company(name);
+		return new Company(name, bankrupted);
 	}
 }

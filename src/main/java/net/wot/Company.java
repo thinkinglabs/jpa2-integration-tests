@@ -22,6 +22,8 @@ public class Company implements Serializable {
 	
 	private String name;
 	
+	private boolean bankrupted;
+	
 	@OneToMany(cascade=CascadeType.PERSIST, targetEntity=Employee.class)
 	@JoinColumn(name="COMPANY_ID")
 	private List<Employee> employees;
@@ -31,10 +33,11 @@ public class Company implements Serializable {
 		this.employees = new ArrayList<>();
 	}
 	
-	public Company(String name)
+	public Company(String name, boolean bankrupted)
 	{
 		this();
 		this.name = name;
+		this.bankrupted = bankrupted;
 	}
 
 	public Long getId() {
@@ -52,6 +55,10 @@ public class Company implements Serializable {
 	public List<Employee> getEmployees() {
 		return employees;
 	}
+
+	@Override
+	public String toString() {
+		return "Company [" + name + "]";
+	}
    
-	
 }
