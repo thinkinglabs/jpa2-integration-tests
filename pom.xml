@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>net.wot</groupId>
-	<artifactId>jpa</artifactId>
+	<artifactId>jpa2-integration-tests</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>jpatests</name>
+	<name>jpa2-integration-tests</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
