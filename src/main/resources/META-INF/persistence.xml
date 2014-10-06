@@ -4,8 +4,6 @@
 		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
 		<class>net.wot.employee.Employee</class>
 		<class>net.wot.company.Company</class>
-        <class>net.wot.baserelease.BaseRelease</class>
-        <class>net.wot.baserelease.Product</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 	</persistence-unit>
 </persistence>
