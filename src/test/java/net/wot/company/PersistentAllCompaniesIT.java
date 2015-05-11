@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
 import net.wot.JPATransactor;
+import net.wot.TestConstants;
 import net.wot.Transactor;
 import net.wot.UnitOfWork;
 import net.wot.company.AllCompanies;
@@ -22,7 +23,7 @@ import static net.wot.company.CompanyNamedMatcher.companyNamed;
 
 public class PersistentAllCompaniesIT {
 
-	final EntityManager entityManager = Persistence.createEntityManagerFactory("integration").createEntityManager();
+	final EntityManager entityManager = Persistence.createEntityManagerFactory(TestConstants.PERSISTENCE_UNIT_NAME).createEntityManager();
 	final AllCompanies allCompanies = new PersistentAllCompanies(entityManager);
 	final Transactor transactor = new JPATransactor(entityManager);
 	

@@ -19,7 +19,7 @@ import org.junit.Test;
 
 public class PersistabilityIT {
 
-	final EntityManager entityManager = Persistence.createEntityManagerFactory("integration").createEntityManager();
+	final EntityManager entityManager = Persistence.createEntityManagerFactory(TestConstants.PERSISTENCE_UNIT_NAME).createEntityManager();
 	final Transactor transactor = new JPATransactor(entityManager);
 	
 	final List<? extends Builder<?>> persistentObjectBuilders = 
