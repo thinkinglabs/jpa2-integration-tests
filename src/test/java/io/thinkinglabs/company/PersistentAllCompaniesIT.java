@@ -1,25 +1,20 @@
-package net.wot.company;
+package io.thinkinglabs.company;
 
 import static org.junit.Assert.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
-import net.wot.JPATransactor;
-import net.wot.TestConstants;
-import net.wot.Transactor;
-import net.wot.UnitOfWork;
-import net.wot.company.AllCompanies;
-import net.wot.company.Company;
-import net.wot.company.PersistentAllCompanies;
+import io.thinkinglabs.TestConstants;
+import io.thinkinglabs.JPATransactor;
+import io.thinkinglabs.Transactor;
+import io.thinkinglabs.UnitOfWork;
 
 import org.hamcrest.Matcher;
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.hamcrest.Matchers.containsInAnyOrder;
-import static net.wot.company.CompanyBuilder.aCompany;
-import static net.wot.company.CompanyNamedMatcher.companyNamed;
+import static io.thinkinglabs.company.CompanyNamedMatcher.companyNamed;
 
 public class PersistentAllCompaniesIT {
 
@@ -30,9 +25,9 @@ public class PersistentAllCompaniesIT {
 	@Test
 	public void findBankruptedCompanies() throws Exception {
 		addCompanies(
-			aCompany().withName("Foo Ltd. (bankrupt)").withBankrupted(true),
-			aCompany().withName("Bar Ltd. (bankrupt)").withBankrupted(true),
-			aCompany().withName("Winner Ltd.")
+			CompanyBuilder.aCompany().withName("Foo Ltd. (bankrupt)").withBankrupted(true),
+			CompanyBuilder.aCompany().withName("Bar Ltd. (bankrupt)").withBankrupted(true),
+			CompanyBuilder.aCompany().withName("Winner Ltd.")
 		);
 		
 		assertBankruptedCompanies(

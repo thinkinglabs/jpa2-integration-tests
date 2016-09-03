@@ -1,8 +1,7 @@
-package net.wot;
+package io.thinkinglabs;
 
 import static org.junit.Assert.assertThat;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -10,8 +9,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
 
-import net.wot.company.CompanyBuilder;
-import net.wot.employee.EmployeeBuilder;
+import io.thinkinglabs.company.CompanyBuilder;
+import io.thinkinglabs.employee.EmployeeBuilder;
 
 import org.apache.commons.beanutils.PropertyUtils;
 import org.hamcrest.beans.SamePropertyValuesAs;

@@ -1,12 +1,11 @@
-package net.wot.company;
+package io.thinkinglabs.company;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import net.wot.Builder;
-import net.wot.company.Company;
-import net.wot.employee.Employee;
+import io.thinkinglabs.Builder;
+import io.thinkinglabs.employee.Employee;
 
 public class CompanyBuilder implements Builder<Company> {
 	private String name = "a company";

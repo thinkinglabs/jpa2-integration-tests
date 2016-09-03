@@ -1,4 +1,4 @@
-package net.wot.company;
+package io.thinkinglabs.company;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import net.wot.employee.Employee;
+import io.thinkinglabs.employee.Employee;
 
 /**
  * Entity implementation class for Entity: Company

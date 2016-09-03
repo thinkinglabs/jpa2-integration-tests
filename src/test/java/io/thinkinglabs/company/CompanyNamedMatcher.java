@@ -1,6 +1,4 @@
-package net.wot.company;
-
-import net.wot.company.Company;
+package io.thinkinglabs.company;
 
 import org.hamcrest.Description;
 import org.hamcrest.TypeSafeMatcher;

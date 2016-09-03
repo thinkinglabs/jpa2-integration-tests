@@ -1,4 +1,4 @@
-package net.wot;
+package io.thinkinglabs;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;

@@ -1,4 +1,4 @@
-package net.wot;
+package io.thinkinglabs;
 
 
 public interface UnitOfWork {

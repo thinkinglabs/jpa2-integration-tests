@@ -1,4 +1,4 @@
-package net.wot.company;
+package io.thinkinglabs.company;
 
 import java.util.List;
 

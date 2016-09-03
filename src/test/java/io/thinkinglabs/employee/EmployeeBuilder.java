@@ -1,6 +1,6 @@
-package net.wot.employee;
+package io.thinkinglabs.employee;
 
-import net.wot.Builder;
+import io.thinkinglabs.Builder;
 
 public class EmployeeBuilder implements Builder<Employee> {
 	

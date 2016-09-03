@@ -1,4 +1,4 @@
-package net.wot.employee;
+package io.thinkinglabs.employee;
 
 import java.io.Serializable;
 
