@@ -11,7 +11,7 @@
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:integration;create=true"/>
 			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbc.JDBCDriver"/>
-			<property name="eclipselink.ddl-generation" value="create-tables"/>
+			<!--<property name="eclipselink.ddl-generation" value="create-tables"/>-->
 			<property name="eclipselink.logging.level" value="WARNING"/>
 			<property name="eclipselink.logging.parameters" value="true"/>
 		</properties>

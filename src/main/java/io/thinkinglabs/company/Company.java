@@ -14,12 +14,13 @@ import io.thinkinglabs.employee.Employee;
  */
 @Entity
 @Access(AccessType.FIELD)
+@SequenceGenerator(name = "seq_company", sequenceName = "SEQ_COMPANY")
 public class Company implements Serializable {
 
 	private static final long serialVersionUID = 3537556775222721424L;
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_company")
 	private Long id;
 	
 	private String name;

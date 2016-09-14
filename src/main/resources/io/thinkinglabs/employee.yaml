@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-employee
+      author: TdP
+      changes:
+        - createTable:
+            tableName: employee
+            columns:
+            - column:
+                name: id
+                type: BIGINT
+                constraints:
+                  nullable: false
+                  primary: true
+                  unique: true
+            - column:
+                name: company_id
+                type: BIGINT
+                constraints:
+                  nullable: true
+            - column:
+                name: name
+                type: VARCHAR(50)
+                constraints:
+                  nullable: false
+        - createIndex:
+            indexName: idx_employee_name
+            tableName: employee
+            columns:
+            - column:
+                name: name
+        - addForeignKeyConstraint:
+            constraintName: fkey_employee_company
+            baseTableName: employee
+            baseColumnNames: company_id
+            referencedTableName: company
+            referencedColumnNames: id
+        - createSequence:
+            sequenceName: seq_employee
+            incrementBy: 50
+            startValue: 50
+            cycle: false

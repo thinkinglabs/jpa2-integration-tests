@@ -1,0 +1,5 @@
+databaseChangeLog:
+- include:
+    file: io/thinkinglabs/company.yaml
+- include:
+    file: io/thinkinglabs/employee.yaml
