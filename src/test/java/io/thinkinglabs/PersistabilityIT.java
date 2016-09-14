@@ -11,6 +11,7 @@ import liquibase.database.jvm.JdbcConnection;
 import liquibase.resource.ClassLoaderResourceAccessor;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.hamcrest.beans.SamePropertyValuesAs;
+import org.junit.Rule;
 import org.junit.Test;
 
 import javax.persistence.EntityManager;
@@ -24,8 +25,11 @@ import static org.junit.Assert.assertThat;
 
 public class PersistabilityIT {
 
-    final EntityManager entityManager = Persistence.createEntityManagerFactory(TestConstants.PERSISTENCE_UNIT_NAME).createEntityManager();
-    final Transactor transactor = new JPATransactor(entityManager);
+    final private EntityManager entityManager = Persistence.createEntityManagerFactory(TestConstants.PERSISTENCE_UNIT_NAME).createEntityManager();
+    final private Transactor transactor = new JPATransactor(entityManager);
+
+    @Rule
+    final public DatabaseMigrationRule databaseMigration = new DatabaseMigrationRule(entityManager, transactor);
 
     final List<? extends Builder<?>> persistentObjectBuilders =
             Arrays.asList(
@@ -48,19 +52,6 @@ public class PersistabilityIT {
 
     @Test
     public void roundTripPersistentObjects() throws Exception {
-
-        transactor.perform(new UnitOfWork() {
-            @Override
-            public void work() throws Exception {
-                Connection connection = entityManager.unwrap(Connection.class);
-                Database database = DatabaseFactory.getInstance().findCorrectDatabaseImplementation(new JdbcConnection(connection));
-
-                Liquibase liquibase = new liquibase.Liquibase("io/thinkinglabs/db-changelog.yaml", new ClassLoaderResourceAccessor(), database);
-
-                liquibase.update(new Contexts(), new LabelExpression());
-            }
-        });
-
         for (Builder<?> builder : persistentObjectBuilders) {
             assertCanBePersisted(builder);
         }
