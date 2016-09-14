@@ -1,5 +1,9 @@
 package io.thinkinglabs.company;
 
+import static io.thinkinglabs.company.CompanyBuilder.amazon;
+import static io.thinkinglabs.company.CompanyBuilder.google;
+import static io.thinkinglabs.company.CompanyBuilder.lehmanBrothers;
+import static org.hamcrest.Matchers.contains;
 import static org.junit.Assert.*;
 
 import javax.persistence.EntityManager;
@@ -26,15 +30,12 @@ public class PersistentAllCompaniesIT {
     @Test
     public void findBankruptedCompanies() throws Exception {
         addCompanies(
-                CompanyBuilder.aCompany().withName("Foo Ltd. (bankrupt)").withBankrupted(true),
-                CompanyBuilder.aCompany().withName("Bar Ltd. (bankrupt)").withBankrupted(true),
-                CompanyBuilder.aCompany().withName("Winner Ltd.")
+                google(),
+                amazon(),
+                lehmanBrothers()
         );
 
-        assertBankruptedCompanies(
-                containsInAnyOrder(
-                        companyNamed("Foo Ltd. (bankrupt)"),
-                        companyNamed("Bar Ltd. (bankrupt)")));
+        assertBankruptedCompanies(contains(companyNamed("Lehman Brothers")));
     }
 
     private void addCompanies(final CompanyBuilder... companies) throws Exception {

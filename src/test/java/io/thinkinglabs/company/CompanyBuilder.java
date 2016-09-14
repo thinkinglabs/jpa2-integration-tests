@@ -15,6 +15,18 @@ public class CompanyBuilder implements Builder<Company> {
 	public static CompanyBuilder aCompany() {
 		return new CompanyBuilder();
 	}
+
+	public static CompanyBuilder google() {
+	    return aCompany().withName("Google");
+    }
+
+    public static CompanyBuilder amazon() {
+        return aCompany().withName("Amazon");
+    }
+
+    public static CompanyBuilder lehmanBrothers() {
+        return aCompany().withName("Lehman Brothers").withBankrupted(true);
+    }
 	
 	public CompanyBuilder withName(String name) {
 		this.name = name;
