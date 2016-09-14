@@ -2,13 +2,6 @@ package io.thinkinglabs;
 
 import io.thinkinglabs.company.CompanyBuilder;
 import io.thinkinglabs.employee.EmployeeBuilder;
-import liquibase.Contexts;
-import liquibase.LabelExpression;
-import liquibase.Liquibase;
-import liquibase.database.Database;
-import liquibase.database.DatabaseFactory;
-import liquibase.database.jvm.JdbcConnection;
-import liquibase.resource.ClassLoaderResourceAccessor;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.hamcrest.beans.SamePropertyValuesAs;
 import org.junit.Rule;
@@ -17,7 +10,6 @@ import org.junit.Test;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceException;
-import java.sql.Connection;
 import java.util.Arrays;
 import java.util.List;
 
@@ -34,7 +26,7 @@ public class PersistabilityIT {
     final List<? extends Builder<?>> persistentObjectBuilders =
             Arrays.asList(
                     CompanyBuilder.aCompany()
-                            .havingEmployees(persisted(EmployeeBuilder.anEmployee().withName("Joe Six Pack"))));
+                            .havingEmployees(persisted(EmployeeBuilder.johnDoe())));
 
 
     private <T> Builder<T> persisted(final Builder<T> builder) {
