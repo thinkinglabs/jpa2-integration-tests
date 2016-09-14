@@ -13,6 +13,8 @@ import javax.persistence.PersistenceException;
 import java.util.Arrays;
 import java.util.List;
 
+import static io.thinkinglabs.company.CompanyBuilder.aCompany;
+import static io.thinkinglabs.employee.EmployeeBuilder.johnDoe;
 import static org.junit.Assert.assertThat;
 
 public class PersistabilityIT {
@@ -24,9 +26,7 @@ public class PersistabilityIT {
     final public DatabaseMigrationRule databaseMigration = new DatabaseMigrationRule(entityManager, transactor);
 
     final List<? extends Builder<?>> persistentObjectBuilders =
-            Arrays.asList(
-                    CompanyBuilder.aCompany()
-                            .havingEmployees(persisted(EmployeeBuilder.johnDoe())));
+            Arrays.asList(aCompany().havingEmployees(persisted(johnDoe())));
 
 
     private <T> Builder<T> persisted(final Builder<T> builder) {
