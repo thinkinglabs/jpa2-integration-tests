@@ -26,7 +26,9 @@ public class PersistabilityIT {
     final public DatabaseMigrationRule databaseMigration = new DatabaseMigrationRule(entityManager, transactor);
 
     final List<? extends Builder<?>> persistentObjectBuilders =
-            Arrays.asList(aCompany().havingEmployees(persisted(johnDoe())));
+            Arrays.asList(
+                    aCompany().havingEmployees(persisted(johnDoe()))
+            );
 
 
     private <T> Builder<T> persisted(final Builder<T> builder) {
