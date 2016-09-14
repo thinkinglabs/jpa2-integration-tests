@@ -1,5 +1,7 @@
 # jpa2-integration-tests
 
+[![Build Status](https://travis-ci.org/thinkinglabs/jpa2-integration-tests.svg?branch=master)](https://travis-ci.org/thinkinglabs/jpa2-integration-tests)
+
 This is an example on how you can test your JPA2 annotations against your real database schema.
 
 The integration tests first applies your database migrations against an in-memory database and 
