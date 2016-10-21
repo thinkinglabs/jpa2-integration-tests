@@ -1,5 +1,7 @@
 databaseChangeLog:
 - include:
-    file: io/thinkinglabs/company.yaml
+    relativeToChangelogFile: true
+    file: company.yaml
 - include:
-    file: io/thinkinglabs/employee.yaml
+    relativeToChangelogFile: true
+    file: employee.yaml
