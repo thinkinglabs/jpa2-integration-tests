@@ -35,7 +35,7 @@ public class DatabaseMigrationRule implements TestRule {
                         Connection connection = entityManager.unwrap(Connection.class);
                         Database database = DatabaseFactory.getInstance().findCorrectDatabaseImplementation(new JdbcConnection(connection));
 
-                        Liquibase liquibase = new liquibase.Liquibase("io/thinkinglabs/db-changelog.yaml", new ClassLoaderResourceAccessor(), database);
+                        Liquibase liquibase = new liquibase.Liquibase("META-INF/liquibase/db-changelog.yaml", new ClassLoaderResourceAccessor(), database);
 
                         liquibase.update(new Contexts(), new LabelExpression());
                     }
