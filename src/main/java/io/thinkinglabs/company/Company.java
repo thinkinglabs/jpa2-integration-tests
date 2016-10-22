@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import io.thinkinglabs.BaseEntity;
 import io.thinkinglabs.employee.Employee;
 
 /**
@@ -15,27 +16,25 @@ import io.thinkinglabs.employee.Employee;
 @Entity
 @Access(AccessType.FIELD)
 @SequenceGenerator(name = "seq_company", sequenceName = "SEQ_COMPANY")
-public class Company implements Serializable {
-
-	private static final long serialVersionUID = 3537556775222721424L;
+public class Company extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_company")
 	private Long id;
-	
+
 	private String name;
-	
+
 	private boolean bankrupted;
-	
+
 	@OneToMany(cascade=CascadeType.PERSIST, targetEntity=Employee.class)
 	@JoinColumn(name="COMPANY_ID")
 	private List<Employee> employees;
-	
+
 	private Company() {
 		super();
 		this.employees = new ArrayList<>();
 	}
-	
+
 	public Company(String name, boolean bankrupted)
 	{
 		this();
@@ -43,6 +42,7 @@ public class Company implements Serializable {
 		this.bankrupted = bankrupted;
 	}
 
+	@Override
 	public Long getId() {
 		return id;
 	}
@@ -50,7 +50,7 @@ public class Company implements Serializable {
 	public String getName() {
 		return name;
 	}
-	
+
 	public boolean isBankrupted() {
 		return bankrupted;
 	}
@@ -58,7 +58,7 @@ public class Company implements Serializable {
 	public void addEmployee(Employee employee) {
 		this.employees.add(employee);
 	}
-	
+
 	public List<Employee> getEmployees() {
 		return employees;
 	}
@@ -67,5 +67,5 @@ public class Company implements Serializable {
 	public String toString() {
 		return "Company [" + name + "]";
 	}
-   
+
 }

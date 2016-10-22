@@ -1,8 +1,5 @@
 package io.thinkinglabs;
 
-import io.thinkinglabs.company.CompanyBuilder;
-import io.thinkinglabs.employee.EmployeeBuilder;
-import org.apache.commons.beanutils.PropertyUtils;
 import org.hamcrest.beans.SamePropertyValuesAs;
 import org.junit.Rule;
 import org.junit.Test;
@@ -76,13 +73,13 @@ public class PersistabilityIT {
             @Override
             public void work() throws Exception {
                 //TODO look at ShazamCrest for deep bean property matching
-                assertThat(entityManager.find(original.getClass(), idOf(original)), SamePropertyValuesAs.samePropertyValuesAs(original));
+                assertThat(entityManager.find(original.getClass(), idOf((BaseEntity) original)), SamePropertyValuesAs.samePropertyValuesAs(original));
             }
         });
     }
 
-    protected Object idOf(Object original) throws Exception {
-        return PropertyUtils.getProperty(original, "id");
+    protected Long idOf(BaseEntity original) throws Exception {
+        return original.getId();
     }
 
     private String typeNameFor(Builder<?> builder) {
