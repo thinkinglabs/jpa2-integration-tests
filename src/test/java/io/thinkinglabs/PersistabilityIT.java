@@ -12,6 +12,7 @@ import java.util.List;
 
 import static io.thinkinglabs.company.CompanyBuilder.aCompany;
 import static io.thinkinglabs.employee.EmployeeBuilder.johnDoe;
+import static org.hamcrest.beans.SamePropertyValuesAs.samePropertyValuesAs;
 import static org.junit.Assert.assertThat;
 
 public class PersistabilityIT {
@@ -73,7 +74,7 @@ public class PersistabilityIT {
             @Override
             public void work() throws Exception {
                 //TODO look at ShazamCrest for deep bean property matching
-                assertThat(entityManager.find(original.getClass(), idOf((BaseEntity) original)), SamePropertyValuesAs.samePropertyValuesAs(original));
+                assertThat(entityManager.find(original.getClass(), idOf((BaseEntity) original)), samePropertyValuesAs(original));
             }
         });
     }
