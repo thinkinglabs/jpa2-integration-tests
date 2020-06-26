@@ -16,11 +16,13 @@ The project was started at the time I didn't know better, so unfortunately it us
 [Apache Maven](https://maven.apache.org/) for building. There are plans to change the build tool.
 
 To build and run the tests:
-```
+
+```bash
 mvn clean install
 ```
 
 ## Database migrations
+
 The database migrations are expressed using [Liquibase](http://www.liquibase.org/). For the definition,
 I used [YAML](http://yaml.org/) which seemed a good idea, but I am a bit disappointed in the result. In my opinion
 the XML specification is far more expressive then the YAML version. And if you have an IDE that can handle the XML Schemas
@@ -28,5 +30,6 @@ the XML specification is far more expressive then the YAML version. And if you h
 happening with YAML).
 
 ## Credits
+
 The concept of how to test your JPA2 annotations is explained in the [GOOS](http://www.growing-object-oriented-software.com/)
 book by [Nat Pryce](http://www.natpryce.com/) and [Steve Freeman](http://higherorderlogic.com/).
